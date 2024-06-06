@@ -23,3 +23,12 @@ Route::get('/my-orders', \App\Livewire\MyOrdersPage::class);
 
 
 Route::get('/my-orders/{order}', \App\Livewire\MyOrderDetailPage::class);
+
+
+Route::get('/login', \App\Livewire\Auth\LoginPage::class);
+Route::get('/register', \App\Livewire\Auth\RegisterPage::class);
+Route::get('/forgot', \App\Livewire\Auth\ForgotPasswordPage::class);
+Route::get('/reset', \App\Livewire\Auth\ResetPasswordPage::class);
+
+Route::get('/success', \App\Livewire\SuccessPage::class);
+Route::get('/cancel', \App\Livewire\CancelPage::class);
