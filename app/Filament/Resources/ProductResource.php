@@ -45,6 +45,7 @@ class ProductResource extends Resource
                                 ->disabled()
                                 ->dehydrated()
                                  ->unique(Product::class, 'slug', ignoreRecord: true),
+
                             Forms\Components\MarkdownEditor::make('description')
                                 ->required()
                                 ->columnSpanFull()
