@@ -37,7 +37,8 @@ class OrdersRelationManager extends RelationManager
                     ->searchable()
                     ->sortable(),
 
-                Tables\Columns\TextColumn::make('grand_total'),
+                Tables\Columns\TextColumn::make('grand_total')
+                    ->money('EUR'),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->color(fn(string $state):string => match($state){
