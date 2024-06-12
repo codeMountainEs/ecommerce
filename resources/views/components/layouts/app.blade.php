@@ -16,5 +16,9 @@
         @livewire('partials.footer')
 
         @livewireScripts
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+        <x-livewire-alert::flash />
+        <x-livewire-alert::scripts />
+
     </body>
 </html>
