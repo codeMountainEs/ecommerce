@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Helpers\CartManagemet;
+use App\Helpers\CartManagement;
 use App\Livewire\Partials\Navbar;
 use App\Models\Product;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -34,7 +34,7 @@ class ProductDetailPage extends Component
 
     // add product to cart method with qty
     public function addToCart($product_id){
-        $total_count = CartManagemet::addItemToCartWithQty($product_id, $this->quantity);
+        $total_count = CartManagement::addItemToCartWithQty($product_id, $this->quantity);
 
         $this->alert('success', 'Product added to cart successfully!', [
             'position' =>  'bottom-end',

@@ -5,7 +5,7 @@ namespace App\Helpers;
 use App\Models\Product;
 use Illuminate\Support\Facades\Cookie;
 
-class CartManagemet {
+class CartManagement {
 
     // add item to cart
     static public function addItemToCart($product_id){
