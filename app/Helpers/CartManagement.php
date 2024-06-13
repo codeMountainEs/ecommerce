@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Cookie;
 
 class CartManagement {
 
+
+
+
     // add item to cart
     static public function addItemToCart($product_id){
         $cart_items = self::getCartItemsFromCookie();
