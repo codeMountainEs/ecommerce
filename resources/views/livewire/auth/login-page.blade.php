@@ -31,7 +31,6 @@
                                         </div>
                                     @enderror
                                 </div>
-                                {{$errors}}
                                 @error('email')
                                   <p class="text-xs text-red-600 mt-2" id="email-error"> {{$message}}</p>
                                 @enderror
