@@ -18,17 +18,25 @@ Route::get('/categories', \App\Livewire\CategoriesPage::class);
 Route::get('/products', \App\Livewire\ProductsPage::class);
 Route::get('/cart', \App\Livewire\CartPage::class);
 Route::get('/products/{slug}', \App\Livewire\ProductDetailPage::class);
-Route::get('/checkout', \App\Livewire\CheckoutPage::class);
-Route::get('/my-orders', \App\Livewire\MyOrdersPage::class);
 
 
-Route::get('/my-orders/{order}', \App\Livewire\MyOrderDetailPage::class);
+Route::middleware('guest')->group(function () {
 
+    Route::get('/login', \App\Livewire\Auth\LoginPage::class)->name('login');
+    Route::get('/register', \App\Livewire\Auth\RegisterPage::class);
+    Route::get('/forgot', \App\Livewire\Auth\ForgotPasswordPage::class);
+    Route::get('/reset', \App\Livewire\Auth\ResetPasswordPage::class);
+});
 
-Route::get('/login', \App\Livewire\Auth\LoginPage::class);
-Route::get('/register', \App\Livewire\Auth\RegisterPage::class);
-Route::get('/forgot', \App\Livewire\Auth\ForgotPasswordPage::class);
-Route::get('/reset', \App\Livewire\Auth\ResetPasswordPage::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/logout',function (){
+        auth()->logout();
+        return redirect('/');
+    });
+    Route::get('/my-orders', \App\Livewire\MyOrdersPage::class)->name('my-orders');
+    Route::get('/my-orders/{order}', \App\Livewire\MyOrderDetailPage::class);
 
-Route::get('/success', \App\Livewire\SuccessPage::class);
-Route::get('/cancel', \App\Livewire\CancelPage::class);
+    Route::get('/checkout', \App\Livewire\CheckoutPage::class);
+    Route::get('/success', \App\Livewire\SuccessPage::class);
+    Route::get('/cancel', \App\Livewire\CancelPage::class);
+});
