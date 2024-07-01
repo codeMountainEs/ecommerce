@@ -24,8 +24,8 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/login', \App\Livewire\Auth\LoginPage::class)->name('login');
     Route::get('/register', \App\Livewire\Auth\RegisterPage::class);
-    Route::get('/forgot', \App\Livewire\Auth\ForgotPasswordPage::class);
-    Route::get('/reset', \App\Livewire\Auth\ResetPasswordPage::class);
+    Route::get('/forgot', \App\Livewire\Auth\ForgotPasswordPage::class)->name('password.request');
+    Route::get('/reset/{token}', \App\Livewire\Auth\ResetPasswordPage::class)->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {
