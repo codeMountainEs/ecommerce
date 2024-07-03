@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
         return redirect('/');
     });
     Route::get('/my-orders', \App\Livewire\MyOrdersPage::class)->name('my-orders');
-    Route::get('/my-orders/{order}', \App\Livewire\MyOrderDetailPage::class);
+    Route::get('/my-orders/{order_id}', \App\Livewire\MyOrderDetailPage::class)->name('my-orders.show');
 
     Route::get('/checkout', \App\Livewire\CheckoutPage::class);
     Route::get('/success', \App\Livewire\SuccessPage::class)->name('success');

@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Mail\OrderPlaced;
 use App\Models\Address;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -104,8 +106,10 @@ class CheckoutPage extends Component
         $address->order_id = $order->id;
         $address->save();
         $order->items()->createMany($cart_items);
-
         CartManagement::clearCartItems();
+
+        Mail::to(request()->user())->send(new OrderPlaced($order));
+
         return redirect($redirect_url);
 
 
