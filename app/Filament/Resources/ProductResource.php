@@ -56,10 +56,26 @@ class ProductResource extends Resource
 
                     Forms\Components\Section::make('Images')->schema([
                         Forms\Components\FileUpload::make('images')
-                        ->multiple()
+                            ->image()
+                            ->reactive()
+                            ->preserveFilenames()
+                            ->multiple()
                         ->directory('products')
                         ->maxFiles(5)
                         ->reorderable()
+                            ->image()
+                            ->imageEditor()
+                            ->imageResizeMode('cover')
+                            ->imageCropAspectRatio('16:9')
+                            ->imageResizeTargetWidth('1920')
+                            ->imageResizeTargetHeight('1080')
+                            ->maxSize(12024)
+
+
+
+
+
+
                     ])->columnSpan(1)
 
                 ])->columnSpan(2),

@@ -34,7 +34,7 @@
                     <div class="lg:pl-20">
                         <div class="mb-8 [&>ul]:list-disc [&>ul]:ml-4">
                             <h2 class="max-w-xl mb-6 text-2xl font-bold dark:text-gray-400 md:text-4xl">
-                                {{$product->name}}</h2>
+                                {{$product->name}} - {{$product->category->name}}</h2>
                             <p class="inline-block mb-6 text-4xl font-bold text-gray-700 dark:text-gray-400 ">
                                 <span>{{ Number::currency($product->price, 'EUR')  }} </span>
                                 <span class="text-base font-normal text-gray-500 line-through dark:text-gray-400">$1800.99</span>
