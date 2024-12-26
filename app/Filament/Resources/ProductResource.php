@@ -58,22 +58,16 @@ class ProductResource extends Resource
                         Forms\Components\FileUpload::make('images')
                             ->image()
                             ->multiple()
-                        ->directory('products')
-                        ->maxFiles(5)
+                            ->directory('products')
+                            ->maxFiles(5)
                             ->imageEditor()
                             ->imageResizeMode('cover')
                             ->imageCropAspectRatio('16:9')
                             ->imageResizeTargetWidth('1280')
                             ->imageResizeTargetHeight('720')
+                         ])->columnSpan(1)
 
-
-
-
-
-
-                    ])->columnSpan(1)
-
-                ])->columnSpan(2),
+                     ])->columnSpan(2),
 
                 Forms\Components\Group::make()->schema([
                     Forms\Components\Section::make('Price')->schema([
@@ -83,7 +77,7 @@ class ProductResource extends Resource
                         ->prefix('EUR')
                     ]),
                     Forms\Components\Section::make('Associations')->schema([
-                        Forms\Components\Select::make('category_id')
+                    Forms\Components\Select::make('category_id')
                         ->required()
                         ->searchable()
                         ->preload()

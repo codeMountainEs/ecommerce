@@ -13,7 +13,6 @@ class Imagenes extends Component
         $products = Product::where('is_active', '1')->get();
 
 
-
         return view('livewire.inicio.imagenes',[
             'products' => $products,
         ]);
