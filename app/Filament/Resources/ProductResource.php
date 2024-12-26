@@ -45,6 +45,7 @@ class ProductResource extends Resource
                                 ->disabled()
                                 ->dehydrated()
                                  ->unique(Product::class, 'slug', ignoreRecord: true),
+
                             Forms\Components\MarkdownEditor::make('description')
                                 ->required()
                                 ->columnSpanFull()
@@ -55,13 +56,18 @@ class ProductResource extends Resource
 
                     Forms\Components\Section::make('Images')->schema([
                         Forms\Components\FileUpload::make('images')
-                        ->multiple()
-                        ->directory('products')
-                        ->maxFiles(5)
-                        ->reorderable()
-                    ])->columnSpan(1)
+                            ->image()
+                            ->multiple()
+                            ->directory('products')
+                            ->maxFiles(5)
+                            ->imageEditor()
+                            ->imageResizeMode('cover')
+                            ->imageCropAspectRatio('16:9')
+                            ->imageResizeTargetWidth('1280')
+                            ->imageResizeTargetHeight('720')
+                         ])->columnSpan(1)
 
-                ])->columnSpan(2),
+                     ])->columnSpan(2),
 
                 Forms\Components\Group::make()->schema([
                     Forms\Components\Section::make('Price')->schema([
@@ -71,7 +77,7 @@ class ProductResource extends Resource
                         ->prefix('EUR')
                     ]),
                     Forms\Components\Section::make('Associations')->schema([
-                        Forms\Components\Select::make('category_id')
+                    Forms\Components\Select::make('category_id')
                         ->required()
                         ->searchable()
                         ->preload()

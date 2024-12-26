@@ -4,6 +4,7 @@
 /public/hot
 /storage/*.key
 /vendor
+cmd
 .env
 .env.backup
 .env.production
@@ -16,3 +17,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.DS_Store
